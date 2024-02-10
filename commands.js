@@ -6,11 +6,12 @@ const d10 = require("./commands/d10.js");
 const d12 = require("./commands/d12.js");
 const d20 = require("./commands/d20.js");
 const info = require("./commands/commandInfo.js");
+require("dotenv").config();
 
 const commands = { flip, d4, d6, d8, d10, d12, d20, info };
 
 module.exports = async function (msg) {
-    if (msg.channel.id == '823896984263458867' || msg.channel.id == '824321041509384224'){
+    if (msg.channel.id == process.env.MYCHANNEL1 || msg.channel.id == process.env.MYCHANNEL2){
         let tokens = msg.content.split(" ");
         let command = tokens.shift();
         if (command.charAt(0) === "!") {
